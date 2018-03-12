@@ -1,7 +1,7 @@
 #' Consumer preference mapping of Danish carrots types.
 #'
 #' A reduced version of the carrots dataset which is distributed with the
-#' lmerTest package. The reduced dataset includes data from all 103 consumers
+#' \code{\link[lmerTest]} package. The reduced dataset includes data from all 103 consumers
 #' included in the original dataset, but preference scores are only reported on
 #' for 6 of the 12 Danish carrot types (all the products with an \emph{'_E'}
 #' suffix). The other columns retained from the original dataset are consumer

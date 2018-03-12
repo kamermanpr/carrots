@@ -82,4 +82,5 @@ carrots <- carrots %>%
     mutate(Bitterness = as.integer(as.character(Bitterness)))
 
 # Write to file
-devtools::use_data(carrots)
+devtools::use_data(carrots,
+                   overwrite = TRUE)
