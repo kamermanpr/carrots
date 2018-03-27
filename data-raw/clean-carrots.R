@@ -10,6 +10,7 @@
 library(dplyr)
 library(forcats)
 library(stringr)
+library(tidyr)
 
 # Read file
 carrots <- read.csv(file = 'data-raw/carrots.csv')
@@ -42,6 +43,7 @@ carrots <- carrots %>%
            Bitterness = BITTER,
            Crispness = Crisp) %>%
     # Recode data
+    mutate(Consumer = factor(Consumer)) %>%
     mutate(Product = factor(Product)) %>%
     mutate(Frequency = factor(Frequency,
                               ordered = TRUE),
@@ -81,6 +83,19 @@ carrots <- carrots %>%
                                      'Upper-income' = '4')) %>%
     mutate(Bitterness = as.integer(as.character(Bitterness)))
 
+# Make a 'long' format version
+# ('Bitterness', 'Crispness', 'Sweetness' classed under an "Attributes" column)
+long_carrots <- carrots %>%
+    gather(key = Attribute,
+           value = Attribute_rating,
+           Bitterness, Crispness, Sweetness) %>%
+    mutate(Attribute = factor(Attribute))
+
 # Write to file
+## Wide format
 devtools::use_data(carrots,
                    overwrite = TRUE)
+
+## Long format
+devtools::use_data(long_carrots,
+                  overwrite = TRUE)
