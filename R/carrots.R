@@ -1,13 +1,17 @@
-#' Consumer preference mapping of Danish carrots types.
+#' @title Consumer preference mapping of Danish carrots types.
 #'
-#' A reduced version of the carrots dataset which is distributed with the
-#' \code{\link[lmerTest]} package. The reduced dataset includes data from all 103 consumers
+#' @description A reduced version of the carrots dataset that is distributed with the
+#' \code{\link[lmerTest:carrots]{lmerTest}} package. The reduced dataset includes data from all 103 consumers
 #' included in the original dataset, but preference scores are only reported on
 #' for 6 of the 12 Danish carrot types (all the products with an \emph{'_E'}
 #' suffix). The other columns retained from the original dataset are consumer
 #' ratings of carrot sweetness, bitterness, and crispiness; the frequency
 #' at which each consumer consumed carrots; and the age, sex, income, and
 #' employment categories the consumers fell into.
+#'
+#'The \code{\link[carrots]{carrots}} dataset differs from the \code{\link[carrots]{long_carrots}} dataset only through separation of carrot the attribute ratings (bitterness, sweetness,
+#' and crispness) into three separate columns (this is how the data are recorded in
+#' the original carrots dataset in \code{\link[lmerTest:carrots]{lmerTest}}).
 #'
 #' @format A data frame with 618 rows and 11 variables:
 #' \describe{
@@ -22,8 +26,8 @@
 #'   \item{Sweetness}{Integer value between 1 (low) and 7 (high), giving the rating each consumer gave to the carrots in terms of sweetness.}
 #'   \item{Bitterness}{Integer value between 1 (low) and 7 (high), giving the rating each consumer gave to the carrots in terms of bitterness.}
 #'   \item{Crispness}{Integer value between 1 (low) and 7 (high), giving the rating each consumer gave to the carrots in terms of crispness.}
-#' }
+#'   }
 #'
 #' @source Per Bruun Brockhoff, The Royal Veterinary and Agricultural
-#' University, Denmark; and \code{\link[lmerTest]{carrots}}.
+#' University, Denmark; and \code{\link[lmerTest:carrots]{lmerTest}}.
 "carrots"
