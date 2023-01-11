@@ -1,0 +1,42 @@
+---
+title: "Using the carrots data package"
+author: "Peter Kamerman"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using the carrots data package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+The _carrots_ data package contains a reduced version of the carrots dataset found within the _lmerTest_ package. The reduced dataset includes data from all 103 consumers included in the original dataset, but preference scores are only reported for 6 of the 12 Danish carrot types. The other columns retained from the original dataset are consumer rating of carrot sweetness, bitterness and crispiness, the frequency at which each consumer consumed carrots, and the age, sex, income, and employment categories the consumers fell into.
+
+To use the data, first install the package:
+
+```{r install, eval = FALSE}
+devtools::install_github('kamermanpr/carrots')
+```
+
+Once the package has been installed you can access the data as follows:
+
+```{r access_wide, fig.align='center', fig.width=7, fig.height=5}
+# Extract the wide format carrots data
+wide <- carrots::carrots
+
+# View the dataframe
+head(wide)
+
+# Examine the columns
+str(wide)
+
+# Generate a summary for each column
+summary(wide)
+
+# Plot relationship between preference and age group for Bolero carrots
+boxplot(Preference ~ Age_group, 
+        data = wide[wide$Product == 'Bolero', ],
+        main = 'Bolero carrots: Preference rating by age group')
+```
+
+### Note
+
+To access the carrots data with the attribute data (sweetness, bitterness, crispness) in long format, use: `carrots::long_carrots`.
